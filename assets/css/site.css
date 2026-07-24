@@ -209,6 +209,27 @@ h2 {
   color: var(--muted);
 }
 
+.paper-table {
+  width: min(100%, 995px);
+  margin: 0 auto 32px;
+}
+
+.paper-table--compact {
+  width: min(100%, 480px);
+}
+
+.paper-table a {
+  display: block;
+}
+
+.paper-table img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #ffffff;
+  border: 1px solid var(--border);
+}
+
 .table-wrap {
   overflow-x: auto;
   background: #ffffff;
