@@ -2,7 +2,7 @@ window.DEMO_DATA = {
   "systems": [
     {
       "key": "gt",
-      "label": "Ground Truth"
+      "label": "GT"
     },
     {
       "key": "cosyvoice3",

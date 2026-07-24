@@ -54,9 +54,8 @@
     if (!thead || !tbody) return;
 
     thead.append(
-      headerCell("Sample", "sticky-column sticky-column--id"),
-      headerCell("Reference", "sticky-column sticky-column--reference"),
-      headerCell("Target text")
+      headerCell("Audio Prompt", "sticky-column sticky-column--reference"),
+      headerCell("Text Prompt")
     );
     data.systems.forEach((system) => {
       thead.appendChild(
@@ -66,10 +65,6 @@
 
     data.comparison.forEach((sample) => {
       const row = document.createElement("tr");
-
-      const id = document.createElement("td");
-      id.className = "sample-id sticky-column sticky-column--id";
-      id.textContent = sample.id;
 
       const reference = document.createElement("td");
       reference.className = "sticky-column sticky-column--reference";
@@ -83,7 +78,7 @@
       text.className = "text-cell";
       text.textContent = sample.targetText;
 
-      row.append(id, reference, text);
+      row.append(reference, text);
       data.systems.forEach((system) => {
         const result = document.createElement("td");
         if (system.highlight) result.className = "highlight-column";
@@ -101,17 +96,13 @@
 
     const modelRow = document.createElement("tr");
     const stepRow = document.createElement("tr");
-    const sampleHeading = headerCell(
-      "Sample",
-      "sticky-column sticky-column--id"
-    );
     const referenceHeading = headerCell(
-      "Reference",
+      "Audio Prompt",
       "sticky-column sticky-column--reference"
     );
-    const targetHeading = headerCell("Target text");
+    const targetHeading = headerCell("Text Prompt");
 
-    [sampleHeading, referenceHeading, targetHeading].forEach((heading) => {
+    [referenceHeading, targetHeading].forEach((heading) => {
       heading.rowSpan = 2;
       modelRow.appendChild(heading);
     });
@@ -147,10 +138,6 @@
     flowSamples.forEach((sample) => {
       const row = document.createElement("tr");
 
-      const id = document.createElement("td");
-      id.className = "sample-id sticky-column sticky-column--id";
-      id.textContent = sample.id;
-
       const reference = document.createElement("td");
       reference.className = "sticky-column sticky-column--reference";
       reference.appendChild(audioPlayer(sample.reference, "Audio prompt"));
@@ -163,7 +150,7 @@
       text.className = "text-cell";
       text.textContent = sample.targetText;
 
-      row.append(id, reference, text);
+      row.append(reference, text);
       data.flowSystems.forEach((system) => {
         data.flowSteps.forEach((step) => {
           const result = document.createElement("td");
