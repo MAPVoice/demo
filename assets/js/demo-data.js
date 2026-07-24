@@ -6,7 +6,7 @@ window.DEMO_DATA = {
     },
     {
       "key": "cosyvoice3",
-      "label": "CosyVoice 3"
+      "label": "CosyVoice"
     },
     {
       "key": "qwen06b",
@@ -48,6 +48,10 @@ window.DEMO_DATA = {
       "label": "MAPVoice-Distill 2000h",
       "highlight": true
     }
+  ],
+  "comparisonLayout": [
+    ["qwen17b", "cosyvoice3", "zipvoiceScratch", "mapvoice700h", "mapvoice2000h"],
+    ["qwen06b", "peftTts", "zipvoiceFull", "distill700h", "distill2000h"]
   ],
   "comparison": [
     {

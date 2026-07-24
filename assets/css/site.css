@@ -245,7 +245,7 @@ h2 {
 
 .demo-table {
   width: 100%;
-  min-width: 1800px;
+  min-width: 1320px;
   border-collapse: collapse;
 }
 
@@ -307,6 +307,19 @@ h2 {
 
 .demo-table tbody tr:hover {
   background: #fbfcff;
+}
+
+#comparison-table .comparison-row--primary td {
+  border-bottom-color: var(--surface-strong);
+}
+
+#comparison-table .comparison-row--secondary td {
+  border-bottom: 2px solid var(--border);
+}
+
+#comparison-table th:not([rowspan]),
+#comparison-table td:not([rowspan]) {
+  text-align: center;
 }
 
 .demo-table .highlight-column {

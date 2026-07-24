@@ -3,6 +3,7 @@
 
   const data = window.DEMO_DATA || {
     systems: [],
+    comparisonLayout: [],
     comparison: [],
     flowSystems: [],
     flowSteps: [2, 4, 8, 16],
@@ -53,21 +54,46 @@
     const tbody = document.getElementById("comparison-body");
     if (!thead || !tbody) return;
 
-    thead.append(
-      headerCell("Audio Prompt", "sticky-column sticky-column--reference"),
-      headerCell("Text Prompt")
+    const systemsByKey = Object.fromEntries(
+      data.systems.map((system) => [system.key, system])
     );
-    data.systems.forEach((system) => {
-      thead.appendChild(
-        headerCell(system.label, system.highlight ? "highlight-column" : "")
-      );
+    const headerRows = data.comparisonLayout.map(() =>
+      document.createElement("tr")
+    );
+    const promptHeading = headerCell(
+      "Audio Prompt",
+      "sticky-column sticky-column--reference"
+    );
+    const textHeading = headerCell("Text Prompt");
+    const gtHeading = headerCell("GT");
+
+    [promptHeading, textHeading, gtHeading].forEach((heading) => {
+      heading.rowSpan = data.comparisonLayout.length;
+      headerRows[0].appendChild(heading);
     });
+    data.comparisonLayout.forEach((systemKeys, rowIndex) => {
+      systemKeys.forEach((key) => {
+        const system = systemsByKey[key];
+        headerRows[rowIndex].appendChild(
+          headerCell(
+            system.label,
+            system.highlight ? "highlight-column" : ""
+          )
+        );
+      });
+    });
+    thead.append(...headerRows);
 
     data.comparison.forEach((sample) => {
-      const row = document.createElement("tr");
+      const rows = data.comparisonLayout.map(() =>
+        document.createElement("tr")
+      );
+      rows[0].className = "comparison-row comparison-row--primary";
+      rows[1].className = "comparison-row comparison-row--secondary";
 
       const reference = document.createElement("td");
       reference.className = "sticky-column sticky-column--reference";
+      reference.rowSpan = data.comparisonLayout.length;
       reference.appendChild(audioPlayer(sample.reference, "Audio prompt"));
       const referenceText = document.createElement("span");
       referenceText.className = "reference-text";
@@ -76,16 +102,24 @@
 
       const text = document.createElement("td");
       text.className = "text-cell";
+      text.rowSpan = data.comparisonLayout.length;
       text.textContent = sample.targetText;
 
-      row.append(reference, text);
-      data.systems.forEach((system) => {
-        const result = document.createElement("td");
-        if (system.highlight) result.className = "highlight-column";
-        result.appendChild(audioPlayer(sample.audio[system.key], system.label));
-        row.appendChild(result);
+      const gt = document.createElement("td");
+      gt.rowSpan = data.comparisonLayout.length;
+      gt.appendChild(audioPlayer(sample.audio.gt, "GT"));
+
+      rows[0].append(reference, text, gt);
+      data.comparisonLayout.forEach((systemKeys, rowIndex) => {
+        systemKeys.forEach((key) => {
+          const system = systemsByKey[key];
+          const result = document.createElement("td");
+          if (system.highlight) result.className = "highlight-column";
+          result.appendChild(audioPlayer(sample.audio[key], system.label));
+          rows[rowIndex].appendChild(result);
+        });
       });
-      tbody.appendChild(row);
+      tbody.append(...rows);
     });
   }
 
