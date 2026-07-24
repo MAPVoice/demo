@@ -20,7 +20,7 @@
         Cross-Lingual Text-to-Speech
       </h1>
 
-      <p class="authors">Anonymous authors</p>
+      <p class="authors">Anonymous</p>
 
       <nav class="button-row" aria-label="Project links">
         <a class="button button--primary" href="#audio-demo">
@@ -87,34 +87,6 @@
       </div>
     </section>
 
-    <section class="section container" id="ablation">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">Component analysis</p>
-          <h2>Ablation Study</h2>
-        </div>
-        <p>
-          Compare the effects of Shared Attention LoRA and the local acoustic
-          convolution adapter.
-        </p>
-      </div>
-
-      <div class="table-wrap" role="region" aria-label="Ablation audio samples" tabindex="0">
-        <table class="demo-table">
-          <thead>
-            <tr>
-              <th scope="col">Sample</th>
-              <th scope="col">Target text</th>
-              <th scope="col">Shared LoRA</th>
-              <th scope="col">Conv-Adapter</th>
-              <th scope="col" class="highlight-column">MAPVoice</th>
-            </tr>
-          </thead>
-          <tbody id="ablation-body"></tbody>
-        </table>
-      </div>
-    </section>
-
     <section class="section section--muted" id="acceleration">
       <div class="container">
         <div class="section-heading">
@@ -127,15 +99,14 @@
             keeping the full pre-trained student backbone frozen.
           </p>
         </div>
-        <div class="metric-row" aria-label="Efficiency highlights">
-          <div class="metric">
-            <strong>4.5%</strong>
-            <span>parameters updated by MAPVoice</span>
-          </div>
-          <div class="metric">
-            <strong>7.10&times;</strong>
-            <span>inference speedup</span>
-          </div>
+
+        <div class="table-wrap" role="region" aria-label="Flow acceleration audio samples" tabindex="0">
+          <table class="demo-table" id="flow-table">
+            <thead>
+              <tr id="flow-head"></tr>
+            </thead>
+            <tbody id="flow-body"></tbody>
+          </table>
         </div>
       </div>
     </section>

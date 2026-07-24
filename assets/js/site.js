@@ -4,7 +4,8 @@
   const data = window.DEMO_DATA || {
     systems: [],
     comparison: [],
-    ablation: []
+    flowSystems: [],
+    flowAcceleration: []
   };
 
   function audioPlayer(src, label) {
@@ -91,11 +92,28 @@
     });
   }
 
-  function renderAblation() {
-    const tbody = document.getElementById("ablation-body");
-    if (!tbody) return;
+  function renderFlowAcceleration() {
+    const thead = document.getElementById("flow-head");
+    const tbody = document.getElementById("flow-body");
+    if (!thead || !tbody) return;
 
-    data.ablation.forEach((sample) => {
+    thead.append(
+      headerCell("Sample"),
+      headerCell("Target text")
+    );
+    data.flowSystems.forEach((system) => {
+      const heading = headerCell(
+        system.label,
+        system.highlight ? "highlight-column" : ""
+      );
+      const group = document.createElement("span");
+      group.className = "system-group";
+      group.textContent = system.group;
+      heading.prepend(group);
+      thead.appendChild(heading);
+    });
+
+    data.flowAcceleration.forEach((sample) => {
       const row = document.createElement("tr");
 
       const id = document.createElement("td");
@@ -106,21 +124,17 @@
       text.className = "text-cell";
       text.textContent = sample.targetText;
 
-      const shared = document.createElement("td");
-      shared.appendChild(audioPlayer(sample.sharedLora, "Shared LoRA"));
-
-      const conv = document.createElement("td");
-      conv.appendChild(audioPlayer(sample.convAdapter, "Conv-Adapter"));
-
-      const mapvoice = document.createElement("td");
-      mapvoice.className = "highlight-column";
-      mapvoice.appendChild(audioPlayer(sample.mapvoice, "Combined"));
-
-      row.append(id, text, shared, conv, mapvoice);
+      row.append(id, text);
+      data.flowSystems.forEach((system) => {
+        const result = document.createElement("td");
+        if (system.highlight) result.className = "highlight-column";
+        result.appendChild(audioPlayer(sample.audio[system.key], system.label));
+        row.appendChild(result);
+      });
       tbody.appendChild(row);
     });
   }
 
   renderComparison();
-  renderAblation();
+  renderFlowAcceleration();
 })();

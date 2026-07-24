@@ -36,20 +36,33 @@ window.DEMO_DATA = {
     }
   ],
 
-  ablation: [
+  flowSystems: [
+    { key: "mapvoiceFull", label: "MAPVoice", group: "Full-parameter" },
     {
-      id: "A01",
+      key: "distillFull",
+      label: "MAPVoice-Distill (Full)",
+      group: "Full-parameter",
+      highlight: true
+    },
+    { key: "mapvoicePeft", label: "MAPVoice", group: "Parameter-efficient" },
+    {
+      key: "distillPeft",
+      label: "MAPVoice-Distill (PEFT)",
+      group: "Parameter-efficient",
+      highlight: true
+    }
+  ],
+
+  flowAcceleration: [
+    {
+      id: "F01",
       targetText: "Target transcription will be added.",
-      sharedLora: "",
-      convAdapter: "",
-      mapvoice: ""
+      audio: {}
     },
     {
-      id: "A02",
+      id: "F02",
       targetText: "Target transcription will be added.",
-      sharedLora: "",
-      convAdapter: "",
-      mapvoice: ""
+      audio: {}
     }
   ]
 };

@@ -212,6 +212,10 @@ h2 {
   border-collapse: collapse;
 }
 
+#flow-table {
+  min-width: 1280px;
+}
+
 .demo-table th,
 .demo-table td {
   padding: 16px;
@@ -226,6 +230,14 @@ h2 {
   font-size: 0.84rem;
   letter-spacing: 0.02em;
   white-space: nowrap;
+}
+
+.system-group {
+  display: block;
+  margin-bottom: 3px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
 }
 
 .demo-table tr:last-child td {
@@ -349,34 +361,6 @@ pre {
   font-size: 0.9rem;
 }
 
-.metric-row {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 720px;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.metric {
-  padding: 28px 24px;
-}
-
-.metric + .metric {
-  border-left: 1px solid var(--border);
-}
-
-.metric strong,
-.metric span {
-  display: block;
-}
-
-.metric strong {
-  color: var(--accent-dark);
-  font-size: 2rem;
-  line-height: 1.2;
-}
-
-.metric span,
 .muted-copy {
   color: var(--muted);
 }
@@ -427,14 +411,6 @@ footer a {
     margin-top: 10px;
   }
 
-  .metric-row {
-    grid-template-columns: 1fr;
-  }
-
-  .metric + .metric {
-    border-top: 1px solid var(--border);
-    border-left: 0;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
