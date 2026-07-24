@@ -76,21 +76,12 @@ h2 {
 
 h1 {
   margin-bottom: 14px;
-  font-size: clamp(2.7rem, 7vw, 5.3rem);
+  font-size: clamp(2.35rem, 5vw, 4.25rem);
 }
 
 h2 {
   margin-bottom: 18px;
   font-size: clamp(1.8rem, 4vw, 2.45rem);
-}
-
-.subtitle {
-  max-width: 830px;
-  margin: 0 auto 24px;
-  color: #33405a;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.25rem, 2.7vw, 1.85rem);
-  line-height: 1.45;
 }
 
 .authors {
@@ -171,6 +162,22 @@ h2 {
 .section > p,
 .section .container > p {
   max-width: 900px;
+}
+
+.abstract-content {
+  max-width: 900px;
+}
+
+.abstract-content h2 {
+  text-align: center;
+}
+
+.abstract-content p {
+  max-width: none;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .section-heading {
