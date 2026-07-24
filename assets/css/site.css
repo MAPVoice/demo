@@ -250,7 +250,7 @@ h2 {
 }
 
 #flow-table {
-  min-width: 1900px;
+  min-width: 1400px;
 }
 
 .demo-table th,
@@ -292,9 +292,9 @@ h2 {
 
 .step-audio-grid {
   display: grid;
-  grid-template-columns: repeat(4, 100px);
-  gap: 10px;
-  min-width: 430px;
+  grid-template-columns: repeat(2, 100px);
+  gap: 12px 10px;
+  min-width: 210px;
 }
 
 .step-audio-item {
