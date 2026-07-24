@@ -250,7 +250,7 @@ h2 {
 }
 
 #flow-table {
-  min-width: 2600px;
+  min-width: 1560px;
 }
 
 .demo-table th,
@@ -274,23 +274,40 @@ h2 {
   border-left: 2px solid var(--border);
 }
 
-.step-heading {
-  text-align: center;
+.divider-right {
+  border-right: 2px solid var(--border);
 }
 
-#flow-table td:nth-child(4),
-#flow-table td:nth-child(8),
-#flow-table td:nth-child(12),
-#flow-table td:nth-child(16) {
+#flow-table td:nth-child(n + 4) {
   border-left: 2px solid var(--border);
 }
 
 #flow-table .audio-cell {
-  min-width: 104px;
+  min-width: 100px;
 }
 
 #flow-table audio {
   width: 100px;
+}
+
+.step-audio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 100px);
+  gap: 12px 10px;
+  min-width: 210px;
+}
+
+.step-audio-item {
+  width: 100px;
+}
+
+.step-audio-label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .demo-table tr:last-child td {
@@ -338,13 +355,6 @@ h2 {
 .text-cell {
   min-width: 260px;
   max-width: 390px;
-}
-
-.reference-text {
-  display: block;
-  margin-top: 8px;
-  color: var(--muted);
-  font-size: 0.86rem;
 }
 
 .audio-cell {

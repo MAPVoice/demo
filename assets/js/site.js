@@ -64,8 +64,8 @@
       "Audio Prompt",
       "sticky-column sticky-column--reference"
     );
-    const textHeading = headerCell("Text Prompt");
-    const gtHeading = headerCell("GT");
+    const textHeading = headerCell("Text Prompt", "divider-right");
+    const gtHeading = headerCell("GT", "divider-right");
 
     [promptHeading, textHeading, gtHeading].forEach((heading) => {
       heading.rowSpan = data.comparisonLayout.length;
@@ -95,17 +95,14 @@
       reference.className = "sticky-column sticky-column--reference";
       reference.rowSpan = data.comparisonLayout.length;
       reference.appendChild(audioPlayer(sample.reference, "Audio prompt"));
-      const referenceText = document.createElement("span");
-      referenceText.className = "reference-text";
-      referenceText.textContent = sample.referenceText;
-      reference.appendChild(referenceText);
 
       const text = document.createElement("td");
-      text.className = "text-cell";
+      text.className = "text-cell divider-right";
       text.rowSpan = data.comparisonLayout.length;
       text.textContent = sample.targetText;
 
       const gt = document.createElement("td");
+      gt.className = "divider-right";
       gt.rowSpan = data.comparisonLayout.length;
       gt.appendChild(audioPlayer(sample.audio.gt, "GT"));
 
@@ -128,39 +125,23 @@
     const tbody = document.getElementById("flow-body");
     if (!thead || !tbody) return;
 
-    const modelRow = document.createElement("tr");
-    const stepRow = document.createElement("tr");
+    const headerRow = document.createElement("tr");
     const referenceHeading = headerCell(
       "Audio Prompt",
       "sticky-column sticky-column--reference"
     );
-    const targetHeading = headerCell("Text Prompt");
-    const gtHeading = headerCell("GT");
-
-    [referenceHeading, targetHeading, gtHeading].forEach((heading) => {
-      heading.rowSpan = 2;
-      modelRow.appendChild(heading);
-    });
+    const targetHeading = headerCell("Text Prompt", "divider-right");
+    const gtHeading = headerCell("GT", "divider-right");
+    headerRow.append(referenceHeading, targetHeading, gtHeading);
 
     data.flowSystems.forEach((system) => {
       const heading = headerCell(
         system.label,
         `model-heading${system.highlight ? " highlight-column" : ""}`
       );
-      heading.colSpan = data.flowSteps.length;
-      heading.scope = "colgroup";
-      modelRow.appendChild(heading);
-
-      data.flowSteps.forEach((step) => {
-        stepRow.appendChild(
-          headerCell(
-            `${step} steps`,
-            system.highlight ? "highlight-column step-heading" : "step-heading"
-          )
-        );
-      });
+      headerRow.appendChild(heading);
     });
-    thead.append(modelRow, stepRow);
+    thead.appendChild(headerRow);
 
     const flowSamples = data.flowAcceleration.length
       ? data.flowAcceleration
@@ -172,27 +153,34 @@
       const reference = document.createElement("td");
       reference.className = "sticky-column sticky-column--reference";
       reference.appendChild(audioPlayer(sample.reference, "Audio prompt"));
-      const referenceText = document.createElement("span");
-      referenceText.className = "reference-text";
-      referenceText.textContent = sample.referenceText;
-      reference.appendChild(referenceText);
 
       const text = document.createElement("td");
-      text.className = "text-cell";
+      text.className = "text-cell divider-right";
       text.textContent = sample.targetText;
 
       const gt = document.createElement("td");
+      gt.className = "divider-right";
       gt.appendChild(audioPlayer(sample.audio.gt, "GT"));
 
       row.append(reference, text, gt);
       data.flowSystems.forEach((system) => {
+        const result = document.createElement("td");
+        if (system.highlight) result.className = "highlight-column";
+        const stepGrid = document.createElement("div");
+        stepGrid.className = "step-audio-grid";
+
         data.flowSteps.forEach((step) => {
-          const result = document.createElement("td");
-          if (system.highlight) result.className = "highlight-column";
+          const stepItem = document.createElement("div");
+          stepItem.className = "step-audio-item";
+          const stepLabel = document.createElement("span");
+          stepLabel.className = "step-audio-label";
+          stepLabel.textContent = `${step} steps`;
           const flowAudio = sample.audio?.[system.key]?.[step] || "";
-          result.appendChild(audioPlayer(flowAudio, `${step} steps`));
-          row.appendChild(result);
+          stepItem.append(stepLabel, audioPlayer(flowAudio, `${step} steps`));
+          stepGrid.appendChild(stepItem);
         });
+        result.appendChild(stepGrid);
+        row.appendChild(result);
       });
       tbody.appendChild(row);
     });
