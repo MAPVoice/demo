@@ -56,12 +56,16 @@ window.DEMO_DATA = {
   flowAcceleration: [
     {
       id: "F01",
+      referenceText: "Reference transcription will be added.",
       targetText: "Target transcription will be added.",
+      reference: "",
       audio: {}
     },
     {
       id: "F02",
+      referenceText: "Reference transcription will be added.",
       targetText: "Target transcription will be added.",
+      reference: "",
       audio: {}
     }
   ]

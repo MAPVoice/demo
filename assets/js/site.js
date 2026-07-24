@@ -98,7 +98,8 @@
     if (!thead || !tbody) return;
 
     thead.append(
-      headerCell("Sample"),
+      headerCell("Sample", "sticky-column sticky-column--id"),
+      headerCell("Reference", "sticky-column sticky-column--reference"),
       headerCell("Target text")
     );
     data.flowSystems.forEach((system) => {
@@ -117,14 +118,22 @@
       const row = document.createElement("tr");
 
       const id = document.createElement("td");
-      id.className = "sample-id";
+      id.className = "sample-id sticky-column sticky-column--id";
       id.textContent = sample.id;
+
+      const reference = document.createElement("td");
+      reference.className = "sticky-column sticky-column--reference";
+      reference.appendChild(audioPlayer(sample.reference, "Audio prompt"));
+      const referenceText = document.createElement("span");
+      referenceText.className = "reference-text";
+      referenceText.textContent = sample.referenceText;
+      reference.appendChild(referenceText);
 
       const text = document.createElement("td");
       text.className = "text-cell";
       text.textContent = sample.targetText;
 
-      row.append(id, text);
+      row.append(id, reference, text);
       data.flowSystems.forEach((system) => {
         const result = document.createElement("td");
         if (system.highlight) result.className = "highlight-column";
