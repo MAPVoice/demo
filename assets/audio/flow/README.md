@@ -1,7 +1,8 @@
 # Flow Acceleration Audio
 
-This directory contains audio examples for comparing MAPVoice Parameter-Efficient
-Flow Acceleration at 2, 4, 8, and 16 neural function evaluations (NFE).
+This directory contains audio examples for comparing MAPVoice 2000h,
+MAPVoice-Distill (PEFT), and MAPVoice-Distill (Full) at 2, 4, 8, and 16 neural
+function evaluations (NFE).
 
 The same reference-target pair and random seed are used at every NFE so that the
 only sampling variable is the number of Euler ODE steps. The five samples use a
@@ -10,8 +11,9 @@ utterances used in the Gradio MOS study.
 
 ## Model and inference settings
 
-- Model: MAPVoice-Distill 2000h (PeFA)
-- Checkpoint: `distill/stage1_new/checkpoint-200000.pt`
+- MAPVoice 2000h checkpoint: `checkpoint-300000.pt`
+- MAPVoice-Distill (PEFT) checkpoint: `distill/stage1_new/checkpoint-200000.pt`
+- MAPVoice-Distill (Full) checkpoint: `distill/full/stage1/checkpoint-200000.pt`
 - ODE solver: Euler
 - Guidance scale: 1.0 through the learned guidance-scale embedding
 - Time-shift coefficient: 0.5
@@ -23,5 +25,7 @@ utterances used in the Gradio MOS study.
 
 - `references/`: speaker reference audio
 - `ground_truth/`: target recordings
-- `step_2/`, `step_4/`, `step_8/`, `step_16/`: generated audio
+- `mapvoice_2000h/`: MAPVoice outputs grouped by NFE
+- `mapvoice_distill_peft/`: parameter-efficient distillation outputs grouped by NFE
+- `mapvoice_distill_full/`: full-parameter distillation outputs grouped by NFE
 - `flow_manifest.csv`: text, provenance, settings, and relative audio paths

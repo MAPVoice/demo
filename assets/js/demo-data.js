@@ -457,21 +457,18 @@ window.DEMO_DATA = {
   ],
   "flowSystems": [
     {
-      "key": "mapvoiceFull",
-      "label": "MAPVoice"
-    },
-    {
-      "key": "distillFull",
-      "label": "MAPVoice-Distill (Full)",
+      "key": "mapvoice2000h",
+      "label": "MAPVoice (2000h)",
       "highlight": true
-    },
-    {
-      "key": "mapvoicePeft",
-      "label": "MAPVoice"
     },
     {
       "key": "distillPeft",
       "label": "MAPVoice-Distill (PEFT)",
+      "highlight": true
+    },
+    {
+      "key": "distillFull",
+      "label": "MAPVoice-Distill (Full)",
       "highlight": true
     }
   ],
@@ -484,11 +481,23 @@ window.DEMO_DATA = {
       "reference": "assets/audio/flow/references/flow_001.wav",
       "audio": {
         "gt": "assets/audio/flow/ground_truth/flow_001.wav",
+        "mapvoice2000h": {
+          "2": "assets/audio/flow/mapvoice_2000h/step_2/flow_001.wav",
+          "4": "assets/audio/flow/mapvoice_2000h/step_4/flow_001.wav",
+          "8": "assets/audio/flow/mapvoice_2000h/step_8/flow_001.wav",
+          "16": "assets/audio/flow/mapvoice_2000h/step_16/flow_001.wav"
+        },
         "distillPeft": {
-          "2": "assets/audio/flow/step_2/flow_001.wav",
-          "4": "assets/audio/flow/step_4/flow_001.wav",
-          "8": "assets/audio/flow/step_8/flow_001.wav",
-          "16": "assets/audio/flow/step_16/flow_001.wav"
+          "2": "assets/audio/flow/mapvoice_distill_peft/step_2/flow_001.wav",
+          "4": "assets/audio/flow/mapvoice_distill_peft/step_4/flow_001.wav",
+          "8": "assets/audio/flow/mapvoice_distill_peft/step_8/flow_001.wav",
+          "16": "assets/audio/flow/mapvoice_distill_peft/step_16/flow_001.wav"
+        },
+        "distillFull": {
+          "2": "assets/audio/flow/mapvoice_distill_full/step_2/flow_001.wav",
+          "4": "assets/audio/flow/mapvoice_distill_full/step_4/flow_001.wav",
+          "8": "assets/audio/flow/mapvoice_distill_full/step_8/flow_001.wav",
+          "16": "assets/audio/flow/mapvoice_distill_full/step_16/flow_001.wav"
         }
       }
     },
@@ -499,11 +508,23 @@ window.DEMO_DATA = {
       "reference": "assets/audio/flow/references/flow_002.wav",
       "audio": {
         "gt": "assets/audio/flow/ground_truth/flow_002.wav",
+        "mapvoice2000h": {
+          "2": "assets/audio/flow/mapvoice_2000h/step_2/flow_002.wav",
+          "4": "assets/audio/flow/mapvoice_2000h/step_4/flow_002.wav",
+          "8": "assets/audio/flow/mapvoice_2000h/step_8/flow_002.wav",
+          "16": "assets/audio/flow/mapvoice_2000h/step_16/flow_002.wav"
+        },
         "distillPeft": {
-          "2": "assets/audio/flow/step_2/flow_002.wav",
-          "4": "assets/audio/flow/step_4/flow_002.wav",
-          "8": "assets/audio/flow/step_8/flow_002.wav",
-          "16": "assets/audio/flow/step_16/flow_002.wav"
+          "2": "assets/audio/flow/mapvoice_distill_peft/step_2/flow_002.wav",
+          "4": "assets/audio/flow/mapvoice_distill_peft/step_4/flow_002.wav",
+          "8": "assets/audio/flow/mapvoice_distill_peft/step_8/flow_002.wav",
+          "16": "assets/audio/flow/mapvoice_distill_peft/step_16/flow_002.wav"
+        },
+        "distillFull": {
+          "2": "assets/audio/flow/mapvoice_distill_full/step_2/flow_002.wav",
+          "4": "assets/audio/flow/mapvoice_distill_full/step_4/flow_002.wav",
+          "8": "assets/audio/flow/mapvoice_distill_full/step_8/flow_002.wav",
+          "16": "assets/audio/flow/mapvoice_distill_full/step_16/flow_002.wav"
         }
       }
     },
@@ -514,11 +535,23 @@ window.DEMO_DATA = {
       "reference": "assets/audio/flow/references/flow_003.wav",
       "audio": {
         "gt": "assets/audio/flow/ground_truth/flow_003.wav",
+        "mapvoice2000h": {
+          "2": "assets/audio/flow/mapvoice_2000h/step_2/flow_003.wav",
+          "4": "assets/audio/flow/mapvoice_2000h/step_4/flow_003.wav",
+          "8": "assets/audio/flow/mapvoice_2000h/step_8/flow_003.wav",
+          "16": "assets/audio/flow/mapvoice_2000h/step_16/flow_003.wav"
+        },
         "distillPeft": {
-          "2": "assets/audio/flow/step_2/flow_003.wav",
-          "4": "assets/audio/flow/step_4/flow_003.wav",
-          "8": "assets/audio/flow/step_8/flow_003.wav",
-          "16": "assets/audio/flow/step_16/flow_003.wav"
+          "2": "assets/audio/flow/mapvoice_distill_peft/step_2/flow_003.wav",
+          "4": "assets/audio/flow/mapvoice_distill_peft/step_4/flow_003.wav",
+          "8": "assets/audio/flow/mapvoice_distill_peft/step_8/flow_003.wav",
+          "16": "assets/audio/flow/mapvoice_distill_peft/step_16/flow_003.wav"
+        },
+        "distillFull": {
+          "2": "assets/audio/flow/mapvoice_distill_full/step_2/flow_003.wav",
+          "4": "assets/audio/flow/mapvoice_distill_full/step_4/flow_003.wav",
+          "8": "assets/audio/flow/mapvoice_distill_full/step_8/flow_003.wav",
+          "16": "assets/audio/flow/mapvoice_distill_full/step_16/flow_003.wav"
         }
       }
     },
@@ -529,11 +562,23 @@ window.DEMO_DATA = {
       "reference": "assets/audio/flow/references/flow_004.wav",
       "audio": {
         "gt": "assets/audio/flow/ground_truth/flow_004.wav",
+        "mapvoice2000h": {
+          "2": "assets/audio/flow/mapvoice_2000h/step_2/flow_004.wav",
+          "4": "assets/audio/flow/mapvoice_2000h/step_4/flow_004.wav",
+          "8": "assets/audio/flow/mapvoice_2000h/step_8/flow_004.wav",
+          "16": "assets/audio/flow/mapvoice_2000h/step_16/flow_004.wav"
+        },
         "distillPeft": {
-          "2": "assets/audio/flow/step_2/flow_004.wav",
-          "4": "assets/audio/flow/step_4/flow_004.wav",
-          "8": "assets/audio/flow/step_8/flow_004.wav",
-          "16": "assets/audio/flow/step_16/flow_004.wav"
+          "2": "assets/audio/flow/mapvoice_distill_peft/step_2/flow_004.wav",
+          "4": "assets/audio/flow/mapvoice_distill_peft/step_4/flow_004.wav",
+          "8": "assets/audio/flow/mapvoice_distill_peft/step_8/flow_004.wav",
+          "16": "assets/audio/flow/mapvoice_distill_peft/step_16/flow_004.wav"
+        },
+        "distillFull": {
+          "2": "assets/audio/flow/mapvoice_distill_full/step_2/flow_004.wav",
+          "4": "assets/audio/flow/mapvoice_distill_full/step_4/flow_004.wav",
+          "8": "assets/audio/flow/mapvoice_distill_full/step_8/flow_004.wav",
+          "16": "assets/audio/flow/mapvoice_distill_full/step_16/flow_004.wav"
         }
       }
     },
@@ -544,11 +589,23 @@ window.DEMO_DATA = {
       "reference": "assets/audio/flow/references/flow_005.wav",
       "audio": {
         "gt": "assets/audio/flow/ground_truth/flow_005.wav",
+        "mapvoice2000h": {
+          "2": "assets/audio/flow/mapvoice_2000h/step_2/flow_005.wav",
+          "4": "assets/audio/flow/mapvoice_2000h/step_4/flow_005.wav",
+          "8": "assets/audio/flow/mapvoice_2000h/step_8/flow_005.wav",
+          "16": "assets/audio/flow/mapvoice_2000h/step_16/flow_005.wav"
+        },
         "distillPeft": {
-          "2": "assets/audio/flow/step_2/flow_005.wav",
-          "4": "assets/audio/flow/step_4/flow_005.wav",
-          "8": "assets/audio/flow/step_8/flow_005.wav",
-          "16": "assets/audio/flow/step_16/flow_005.wav"
+          "2": "assets/audio/flow/mapvoice_distill_peft/step_2/flow_005.wav",
+          "4": "assets/audio/flow/mapvoice_distill_peft/step_4/flow_005.wav",
+          "8": "assets/audio/flow/mapvoice_distill_peft/step_8/flow_005.wav",
+          "16": "assets/audio/flow/mapvoice_distill_peft/step_16/flow_005.wav"
+        },
+        "distillFull": {
+          "2": "assets/audio/flow/mapvoice_distill_full/step_2/flow_005.wav",
+          "4": "assets/audio/flow/mapvoice_distill_full/step_4/flow_005.wav",
+          "8": "assets/audio/flow/mapvoice_distill_full/step_8/flow_005.wav",
+          "16": "assets/audio/flow/mapvoice_distill_full/step_16/flow_005.wav"
         }
       }
     }
