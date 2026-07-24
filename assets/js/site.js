@@ -27,6 +27,7 @@
 
     const audio = document.createElement("audio");
     audio.controls = true;
+    audio.controlsList = "nodownload";
     audio.preload = "none";
 
     const source = document.createElement("source");

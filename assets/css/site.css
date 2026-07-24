@@ -45,6 +45,11 @@ a:hover {
   margin: 0 auto;
 }
 
+.audio-section-container {
+  width: min(calc(100% - 32px), 1680px);
+  max-width: none;
+}
+
 .hero {
   position: relative;
   overflow: hidden;
@@ -240,17 +245,17 @@ h2 {
 
 .demo-table {
   width: 100%;
-  min-width: 2520px;
+  min-width: 1900px;
   border-collapse: collapse;
 }
 
 #flow-table {
-  min-width: 4100px;
+  min-width: 2700px;
 }
 
 .demo-table th,
 .demo-table td {
-  padding: 16px;
+  padding: 12px 10px;
   text-align: left;
   vertical-align: top;
   border-bottom: 1px solid var(--border);
@@ -289,11 +294,11 @@ h2 {
 }
 
 #flow-table .audio-cell {
-  min-width: 190px;
+  min-width: 104px;
 }
 
 #flow-table audio {
-  width: 170px;
+  width: 100px;
 }
 
 .demo-table tr:last-child td {
@@ -349,7 +354,7 @@ h2 {
 }
 
 .audio-cell {
-  min-width: 210px;
+  min-width: 104px;
 }
 
 .audio-pending {
@@ -366,15 +371,12 @@ h2 {
 
 audio {
   display: block;
-  width: 190px;
-  height: 38px;
+  width: 100px;
+  height: 27px;
 }
 
 .audio-label {
-  display: block;
-  margin-bottom: 7px;
-  color: var(--muted);
-  font-size: 0.78rem;
+  display: none;
 }
 
 .code-block {
