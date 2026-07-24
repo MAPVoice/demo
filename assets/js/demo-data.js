@@ -458,27 +458,99 @@ window.DEMO_DATA = {
   "flowSystems": [
     {
       "key": "mapvoiceFull",
-      "label": "MAPVoice",
-      "group": "Full-parameter"
+      "label": "MAPVoice"
     },
     {
       "key": "distillFull",
       "label": "MAPVoice-Distill (Full)",
-      "group": "Full-parameter",
       "highlight": true
     },
     {
       "key": "mapvoicePeft",
-      "label": "MAPVoice",
-      "group": "Parameter-efficient"
+      "label": "MAPVoice"
     },
     {
       "key": "distillPeft",
       "label": "MAPVoice-Distill (PEFT)",
-      "group": "Parameter-efficient",
       "highlight": true
     }
   ],
   "flowSteps": [2, 4, 8, 16],
-  "flowAcceleration": []
+  "flowAcceleration": [
+    {
+      "id": "FLOW_001",
+      "referenceText": "따지고 보면 이념성 정책이나 인사를 둘러싼 정부여당의 꼰대질도 야당 뺨친다.",
+      "targetText": "수감자는 석방이라는 말에 자신의 소지품을 챙겨 유유히 교도소를 빠져나왔다.",
+      "reference": "assets/audio/flow/references/flow_001.wav",
+      "audio": {
+        "gt": "assets/audio/flow/ground_truth/flow_001.wav",
+        "distillPeft": {
+          "2": "assets/audio/flow/step_2/flow_001.wav",
+          "4": "assets/audio/flow/step_4/flow_001.wav",
+          "8": "assets/audio/flow/step_8/flow_001.wav",
+          "16": "assets/audio/flow/step_16/flow_001.wav"
+        }
+      }
+    },
+    {
+      "id": "FLOW_002",
+      "referenceText": "올해 초부터 불거진 미투 운동은 한국 사회의 성범죄 현실을 되돌아보게 했다.",
+      "targetText": "붉은불개미 애벌레가 발견된 평택항에는 긴장된 분위기가 역력했다.",
+      "reference": "assets/audio/flow/references/flow_002.wav",
+      "audio": {
+        "gt": "assets/audio/flow/ground_truth/flow_002.wav",
+        "distillPeft": {
+          "2": "assets/audio/flow/step_2/flow_002.wav",
+          "4": "assets/audio/flow/step_4/flow_002.wav",
+          "8": "assets/audio/flow/step_8/flow_002.wav",
+          "16": "assets/audio/flow/step_16/flow_002.wav"
+        }
+      }
+    },
+    {
+      "id": "FLOW_003",
+      "referenceText": "그런 경쟁 의식. 잘하고 싶고 최고가 되고 싶고 한데 자신이 없는 것 같은. 그냥 다 하나의 기준에 다 쫓아가는 그런 것 같이 느껴져서 저는 외국에서 살다온 입장에서 라고 생각하게 되었어요.",
+      "targetText": "불안정한 게 느껴지는 부분들 때문인 것 같습니다. 경제 빈부 격차나? 이런 것들도 있는 것 같고 사회적인 부분들 때문에 서로",
+      "reference": "assets/audio/flow/references/flow_003.wav",
+      "audio": {
+        "gt": "assets/audio/flow/ground_truth/flow_003.wav",
+        "distillPeft": {
+          "2": "assets/audio/flow/step_2/flow_003.wav",
+          "4": "assets/audio/flow/step_4/flow_003.wav",
+          "8": "assets/audio/flow/step_8/flow_003.wav",
+          "16": "assets/audio/flow/step_16/flow_003.wav"
+        }
+      }
+    },
+    {
+      "id": "FLOW_004",
+      "referenceText": "약간 대통령 되면 북한처럼 강압적으로 예 그런 식으로 갈 것 같다는 얘기를 들어서.",
+      "targetText": "사점은 적고 육점은 좀 많은 것 같아요.",
+      "reference": "assets/audio/flow/references/flow_004.wav",
+      "audio": {
+        "gt": "assets/audio/flow/ground_truth/flow_004.wav",
+        "distillPeft": {
+          "2": "assets/audio/flow/step_2/flow_004.wav",
+          "4": "assets/audio/flow/step_4/flow_004.wav",
+          "8": "assets/audio/flow/step_8/flow_004.wav",
+          "16": "assets/audio/flow/step_16/flow_004.wav"
+        }
+      }
+    },
+    {
+      "id": "FLOW_005",
+      "referenceText": "유엔아동기금, 유니세프는 중국에서 해상을 통해 대북 지원물자를 북한으로 전달하고 있다고 밝혔습니다.",
+      "targetText": "앞서 FAO는 지난 2일 발간한 `작물 전망과 식량 상황` 분기 보고서에서도 북한을 비롯한 44개 나라를 외부 식량 지원이 필요한 국가로 분류했습니다.",
+      "reference": "assets/audio/flow/references/flow_005.wav",
+      "audio": {
+        "gt": "assets/audio/flow/ground_truth/flow_005.wav",
+        "distillPeft": {
+          "2": "assets/audio/flow/step_2/flow_005.wav",
+          "4": "assets/audio/flow/step_4/flow_005.wav",
+          "8": "assets/audio/flow/step_8/flow_005.wav",
+          "16": "assets/audio/flow/step_16/flow_005.wav"
+        }
+      }
+    }
+  ]
 };

@@ -220,7 +220,7 @@ h2 {
 }
 
 .paper-table--compact {
-  width: min(100%, 480px);
+  width: min(100%, 560px);
 }
 
 .paper-table a {
@@ -269,14 +269,6 @@ h2 {
   white-space: nowrap;
 }
 
-.system-group {
-  display: block;
-  margin-bottom: 3px;
-  color: var(--muted);
-  font-size: 0.72rem;
-  font-weight: 600;
-}
-
 .model-heading {
   text-align: center;
   border-left: 2px solid var(--border);
@@ -286,10 +278,10 @@ h2 {
   text-align: center;
 }
 
-#flow-table td:nth-child(3),
-#flow-table td:nth-child(7),
-#flow-table td:nth-child(11),
-#flow-table td:nth-child(15) {
+#flow-table td:nth-child(4),
+#flow-table td:nth-child(8),
+#flow-table td:nth-child(12),
+#flow-table td:nth-child(16) {
   border-left: 2px solid var(--border);
 }
 

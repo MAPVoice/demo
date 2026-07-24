@@ -135,8 +135,9 @@
       "sticky-column sticky-column--reference"
     );
     const targetHeading = headerCell("Text Prompt");
+    const gtHeading = headerCell("GT");
 
-    [referenceHeading, targetHeading].forEach((heading) => {
+    [referenceHeading, targetHeading, gtHeading].forEach((heading) => {
       heading.rowSpan = 2;
       modelRow.appendChild(heading);
     });
@@ -146,10 +147,6 @@
         system.label,
         `model-heading${system.highlight ? " highlight-column" : ""}`
       );
-      const group = document.createElement("span");
-      group.className = "system-group";
-      group.textContent = system.group;
-      heading.prepend(group);
       heading.colSpan = data.flowSteps.length;
       heading.scope = "colgroup";
       modelRow.appendChild(heading);
@@ -184,7 +181,10 @@
       text.className = "text-cell";
       text.textContent = sample.targetText;
 
-      row.append(reference, text);
+      const gt = document.createElement("td");
+      gt.appendChild(audioPlayer(sample.audio.gt, "GT"));
+
+      row.append(reference, text, gt);
       data.flowSystems.forEach((system) => {
         data.flowSteps.forEach((step) => {
           const result = document.createElement("td");
