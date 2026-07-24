@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Anonymous audio samples for the MAPVoice research project.">
+  <meta name="theme-color" content="#315b9d">
+
+  <title>MAPVoice — Audio Demo</title>
+
+  <link rel="icon" href="assets/images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container hero__content">
+      <p class="eyebrow">Anonymous submission · Audio demo</p>
+      <h1>MAPVoice</h1>
+      <p class="subtitle">
+        Multi-Adapter Parameter-Efficient Cross-Lingual Adaptation for
+        Zero-Shot Text-to-Speech
+      </p>
+
+      <p class="authors">Anonymous authors</p>
+
+      <nav class="button-row" aria-label="Project links">
+        <a class="button button--primary" href="#audio-demo">
+          Audio samples
+        </a>
+        <a class="button" href="#abstract">Abstract</a>
+        <a class="button" href="#citation">Citation</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section container" id="abstract">
+      <h2>Abstract</h2>
+      <p>
+        Cross-lingual adaptation of large-scale pre-trained text-to-speech (TTS)
+        models aims to extend speech synthesis to a target language with limited
+        target-language data while preserving zero-shot synthesis capability.
+        Although parameter-efficient fine-tuning (PEFT) enables adaptation with few
+        trainable parameters, generic PEFT designs may be suboptimal for generative
+        TTS models because they overlook the distinct roles of architectural
+        components. In this paper, we propose <strong>MAPVoice</strong>, a
+        multi-adapter parameter-efficient framework for cross-lingual zero-shot
+        TTS. MAPVoice keeps the pre-trained backbone frozen and introduces two
+        complementary modules: Shared Attention LoRA for global contextual
+        adaptation and Conv-Adapter for local acoustic modeling. We systematically
+        analyze how adapter insertion sites and module combinations affect
+        cross-lingual adaptation in a flow-matching-based TTS model. We further show
+        that ODE sampling can be accelerated by updating only PEFT modules, reducing
+        sampling steps and eliminating the overhead of explicit classifier-free
+        guidance. Experimental results show that MAPVoice effectively adapts the
+        pre-trained TTS model to the target language while updating only a small
+        fraction of parameters, and Parameter-Efficient Flow Acceleration further
+        improves inference efficiency without updating the full student model.
+        MAPVoice adapts the pre-trained model by updating only <strong>4.5%</strong>
+        of the total parameters, while Parameter-Efficient Flow Acceleration
+        provides a <strong>7.10&times;</strong> inference speedup.
+      </p>
+    </section>
+
+    <section class="section section--muted" id="audio-demo">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Main comparison</p>
+            <h2>Cross-Lingual Zero-Shot TTS</h2>
+          </div>
+          <p>
+            Each sample uses the same reference utterance and target text across all
+            systems. Headphones are recommended.
+          </p>
+        </div>
+
+        <div class="table-wrap" role="region" aria-label="Zero-shot Korean TTS samples" tabindex="0">
+          <table class="demo-table" id="comparison-table">
+            <thead>
+              <tr id="comparison-head"></tr>
+            </thead>
+            <tbody id="comparison-body"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="ablation">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Component analysis</p>
+          <h2>Ablation Study</h2>
+        </div>
+        <p>
+          Compare the effects of Shared Attention LoRA and the local acoustic
+          convolution adapter.
+        </p>
+      </div>
+
+      <div class="table-wrap" role="region" aria-label="Ablation audio samples" tabindex="0">
+        <table class="demo-table">
+          <thead>
+            <tr>
+              <th scope="col">Sample</th>
+              <th scope="col">Target text</th>
+              <th scope="col">Shared LoRA</th>
+              <th scope="col">Conv-Adapter</th>
+              <th scope="col" class="highlight-column">MAPVoice</th>
+            </tr>
+          </thead>
+          <tbody id="ablation-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="section section--muted" id="acceleration">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Efficient sampling</p>
+            <h2>Flow Acceleration</h2>
+          </div>
+          <p>
+            Parameter-Efficient Flow Acceleration reduces ODE sampling cost while
+            keeping the full pre-trained student backbone frozen.
+          </p>
+        </div>
+        <div class="metric-row" aria-label="Efficiency highlights">
+          <div class="metric">
+            <strong>4.5%</strong>
+            <span>parameters updated by MAPVoice</span>
+          </div>
+          <div class="metric">
+            <strong>7.10&times;</strong>
+            <span>inference speedup</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container" id="citation">
+      <h2>Citation</h2>
+      <p class="muted-copy">
+        Citation information will be added after the anonymous review period.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer__content">
+      <p>
+        Anonymous research demonstration. Audio samples are provided for review
+        purposes.
+      </p>
+    </div>
+  </footer>
+
+  <script src="assets/js/demo-data.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>
