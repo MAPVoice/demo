@@ -5,6 +5,7 @@
     systems: [],
     comparison: [],
     flowSystems: [],
+    flowSteps: [2, 4, 8, 16],
     flowAcceleration: []
   };
 
@@ -97,24 +98,52 @@
     const tbody = document.getElementById("flow-body");
     if (!thead || !tbody) return;
 
-    thead.append(
-      headerCell("Sample", "sticky-column sticky-column--id"),
-      headerCell("Reference", "sticky-column sticky-column--reference"),
-      headerCell("Target text")
+    const modelRow = document.createElement("tr");
+    const stepRow = document.createElement("tr");
+    const sampleHeading = headerCell(
+      "Sample",
+      "sticky-column sticky-column--id"
     );
+    const referenceHeading = headerCell(
+      "Reference",
+      "sticky-column sticky-column--reference"
+    );
+    const targetHeading = headerCell("Target text");
+
+    [sampleHeading, referenceHeading, targetHeading].forEach((heading) => {
+      heading.rowSpan = 2;
+      modelRow.appendChild(heading);
+    });
+
     data.flowSystems.forEach((system) => {
       const heading = headerCell(
         system.label,
-        system.highlight ? "highlight-column" : ""
+        `model-heading${system.highlight ? " highlight-column" : ""}`
       );
       const group = document.createElement("span");
       group.className = "system-group";
       group.textContent = system.group;
       heading.prepend(group);
-      thead.appendChild(heading);
-    });
+      heading.colSpan = data.flowSteps.length;
+      heading.scope = "colgroup";
+      modelRow.appendChild(heading);
 
-    data.flowAcceleration.forEach((sample) => {
+      data.flowSteps.forEach((step) => {
+        stepRow.appendChild(
+          headerCell(
+            `${step} steps`,
+            system.highlight ? "highlight-column step-heading" : "step-heading"
+          )
+        );
+      });
+    });
+    thead.append(modelRow, stepRow);
+
+    const flowSamples = data.flowAcceleration.length
+      ? data.flowAcceleration
+      : data.comparison;
+
+    flowSamples.forEach((sample) => {
       const row = document.createElement("tr");
 
       const id = document.createElement("td");
@@ -135,10 +164,13 @@
 
       row.append(id, reference, text);
       data.flowSystems.forEach((system) => {
-        const result = document.createElement("td");
-        if (system.highlight) result.className = "highlight-column";
-        result.appendChild(audioPlayer(sample.audio[system.key], system.label));
-        row.appendChild(result);
+        data.flowSteps.forEach((step) => {
+          const result = document.createElement("td");
+          if (system.highlight) result.className = "highlight-column";
+          const flowAudio = sample.audio?.[system.key]?.[step] || "";
+          result.appendChild(audioPlayer(flowAudio, `${step} steps`));
+          row.appendChild(result);
+        });
       });
       tbody.appendChild(row);
     });

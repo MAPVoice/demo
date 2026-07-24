@@ -33,10 +33,11 @@ Example:
 }
 ```
 
-### `samples/`
+### `assets/audio/mos/`
 
-The included WAV files are silent placeholders. Add the final evaluation audio and
-reference each file from `demo-data.js`.
+This directory contains the reference prompts, ground-truth recordings, and
+generated samples used by the listening demo. Paths and transcripts are defined
+in `assets/js/demo-data.js`.
 
 ## 3. 로컬 확인
 
