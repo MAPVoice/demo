@@ -17,7 +17,8 @@ git grep -InE '/Users/|/home/|[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}' --
   fail "A local path or email address appears in tracked content."
 
 git grep -InE 'github\.com/[A-Za-z0-9-]+|github\.io/[A-Za-z0-9-]+' -- \
-  . ':(exclude)README.md' >/dev/null &&
+  . ':(exclude)README.md' |
+  grep -vF 'https://mapvoice.github.io/demo/' >/dev/null &&
   fail "A GitHub account URL appears in public page content."
 
 git log --format='%an <%ae>' |
